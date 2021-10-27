@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/ccbreg95/public_html/chamada/
+    - /bin/cp * $DEPLOYPATH
