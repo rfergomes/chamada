@@ -1,2 +1,2 @@
 <?php 
-echo "Olá Mundo! <br>Site em desenvolvimento";
+echo "Olá Mundo!";
