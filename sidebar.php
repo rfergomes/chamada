@@ -8,10 +8,14 @@
                 </li>
 
                 <li class="submenu">
-                    <a href="javascript:void(0);"><i class="fa fa-fw fa-table"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
+                    <a href="account.php?page=eventos"><i class="fa fa-fw fa-bars"></i><span> Eventos </span> </a>
+                </li>
+
+                <li class="submenu">
+                    <a href="javascript:void(0);"><i class="fa fa-fw fa-table"></i> <span> Eventos </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="account.php?page=tables-basic">Basic Tables</a></li>
-                        <li><a href="account.php?page=tables-datatable">Data Tables</a></li>
+                        <li><a href="account.php?page=tables-basic">Listar</a></li>
+                        <li><a href="account.php?page=tables-datatable">Cadastrar</a></li>
                     </ul>
                 </li>
 

@@ -54,9 +54,12 @@ $pagenum = filter_input(INPUT_GET, 'pagenum', FILTER_SANITIZE_NUMBER_INT);
 					switch ($page) {
 
 						case $page:
-							include("views/" . $page . ".php");
+							if (!file_exists("views/" . $page . ".php")){
+								include ("views/404.php");
+							}else{
+								include("views/" . $page . ".php");
+							}							
 							break;
-
 						default:
 							include("views/dashboard.php");
 							break;
