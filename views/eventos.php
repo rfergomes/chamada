@@ -51,6 +51,7 @@ if ($msg == 'error_delete_protected')
 					$hora = $row['hora'];
 					$local = $row['local'];
 					$endereco = $row['endereco'];
+					$mapa = str_replace(" ", "+", $endereco);
 					$tipo = $row['tipo'];
 
 					//$whatsapp = getUsersExtraUnique($user_id, 'whatsapp');
@@ -60,27 +61,29 @@ if ($msg == 'error_delete_protected')
 					<div class="row">
 						<div class="col-2">
 							<div class="card">
-							<div class="card-header"><h5 class="card-title text-center"><?= $evento ?></h5></div>
+								<div class="card-header text-center">
+									<h5 class="card-title"><?= $evento ?></h5>
+									<small class="text-muted"><?= $tipo ?></small>
+								</div>
 								<div class="card-body">
-									
-									<div class="row">
-										<div class="col-2"><i class="fa fa-map-marker bigfonts"></i></div>
-										<div class="col-10"><strong><?= $local ?></strong></div>
-
+									<div class="row">										
 										<div class="col-2"><i class="fa fa-calendar-check-o"></i></i></div>
 										<div class="col-10"><?= $data ?></div>
 
 										<div class="col-2"><i class="fa fa-clock-o"></i></i></div>
 										<div class="col-10"><?= $hora ?></div>
 
+										<div class="col-2"><i class="fa fa-map-marker bigfonts"></i></div>
+										<div class="col-10"><strong><?= $local ?></strong></div>
+
 										<div class="col-2"><i class="fa fa-map"></i></i></div>
-										<div class="col-10"><?= $endereco ?></div>
+										<div class="col-10"><a href="https://www.google.com.br/maps?q=<?= $local . "+" . $mapa ?>" target="_blank"><?= $endereco ?></a></div>
 
 										<div class="col-2"><i class="fa fa-map-marker"></i></i></div>
 										<div class="col-10"><?= $tipo ?></div>
 									</div>
 									<div class="row mt-3 text-success">
-										<div class="col-2"><i class="fa fa-thumbs-o-up"></i></i></div>
+										<div class="col-2"><i class="fa fa-thumbs-o-up"></i></div>
 										<div class="col-10">Presente</div>
 									</div>
 									<div class="row mt-3 text-danger">
