@@ -93,9 +93,6 @@ if ($msg == 'edit_ok')
 							</div>
 
 						</div>
-
-
-
 						<div class="col-lg-3 col-xl-3 border-left">
 							<b>Última atividade</b>: <?php echo DateTimeFormat($last_activity); ?>
 							<br />

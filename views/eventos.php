@@ -22,7 +22,7 @@ if ($msg == 'error_duplicate_email')
 if ($msg == 'edit_ok')
 	echo '<div class="alert alert-success" role="alert">User updated</div>';
 if ($msg == 'add_ok')
-	echo '<div class="alert alert-success" role="alert">User added</div>';
+	echo '<div class="alert alert-success" role="alert">Evento cadastrado com Sucesso!</div>';
 if ($msg == 'delete_ok')
 	echo '<div class="alert alert-success" role="alert">User deleted</div>';
 if ($msg == 'error_delete_protected')
@@ -53,20 +53,18 @@ if ($msg == 'error_delete_protected')
 					$endereco = $row['endereco'];
 					$mapa = str_replace(" ", "+", $endereco);
 					$tipo = $row['tipo'];
-
-					//$whatsapp = getUsersExtraUnique($user_id, 'whatsapp');
-					//$bio = getUsersExtraUnique($user_id, 'bio');
-
 				?>
-					<div class="row">
-						<div class="col-2">
+					<div class="">
+						<div class="col-2 mb-3 float-left">
 							<div class="card">
-								<div class="card-header text-center">
-									<h5 class="card-title"><?= $evento ?></h5>
-									<small class="text-muted"><?= $tipo ?></small>
-								</div>
+								<a href="account.php?page=evento_detalhe&id=<?= $id_evento ?>">
+									<div class="card-header text-center">
+										<h5 class="card-title"><?= $evento ?></h5>
+										<small class="text-muted"><?= $tipo ?></small>
+									</div>
+								</a>
 								<div class="card-body">
-									<div class="row">										
+									<div class="row">
 										<div class="col-2"><i class="fa fa-calendar-check-o"></i></i></div>
 										<div class="col-10"><?= $data ?></div>
 
@@ -92,9 +90,19 @@ if ($msg == 'error_delete_protected')
 									</div>
 								</div>
 								<div class="card-footer">
-									<div class="row">
-										<div class="col-10"><small class="text-muted"></i>Participou do evento? </small></div>
-										<div class="col-2 text-success"><i class="fa fa-thumbs-up"></i></div>
+									<div class="row text-center">
+										<div class="col-6"><a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_edit_event_<?= $id_evento; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+										<?php include("modals/modal_edit_event.php"); ?>
+										<div class="col-6">
+											<a href="javascript:deleteRecord_<?= $id_evento; ?>('<?= $id_evento; ?>');" class="btn btn-danger btn-sm" data-placement="top" data-toggle="tooltip" data-title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+											<script language="javascript" type="text/javascript">
+												function deleteRecord_<?php echo $user_id; ?>(RecordId) {
+													if (confirm('Confirma exclusão?')) {
+														window.location.href = 'core/UserDelete.php?user_id=<?php echo $user_id; ?>&pagenum=<?php echo $pagenum; ?>';
+													}
+												}
+											</script>
+										</div>
 									</div>
 								</div>
 							</div>
