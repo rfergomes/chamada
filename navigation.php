@@ -3,7 +3,7 @@
 
 		<!-- LOGO -->
         <div class="headerbar-left">
-			<a href="<?php echo ADMIN_URL;?>" class="logo"><img src="<?php echo ADMIN_URL;?>/assets/images/logo.png" /> <span>Pike Admin</span></a>
+			<a href="<?php echo ADMIN_URL;?>" class="logo"><img src="<?php echo ADMIN_URL;?>/assets/images/logo.png" /> <span>CFrequência</span></a>
         </div>
 
         <nav class="navbar-custom">

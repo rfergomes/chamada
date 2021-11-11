@@ -69,7 +69,7 @@ debug_backtrace() || die("Direct access not permitted");
 
 
 				<div class="modal-footer">
-					<input type="hidden" name="user_id" value="<?php echo $id_evento; ?>" />
+					<input type="hidden" name="id_evento" value="<?php echo $id_evento; ?>" />
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 

@@ -29,9 +29,9 @@ if($evento=="")
 	header("Location:../account.php?page=pro-users&msg=error_tipo");
 	exit();
 	}
-	if($data=="")
+	if($data=="" || $data < now())
 	{
-	header("Location:../account.php?page=pro-users&msg=error_data");
+	header("Location:../account.php?page=eventos&msg=error_data");
 	exit();
 	}
 	if($hora=="")
@@ -48,11 +48,11 @@ if($evento=="")
 $query = "INSERT INTO ".DB_PREFIX."evento (evento, data, hora, local, endereco, tipo) VALUES (?,?,?,?,?,?)"; 
 $stmt = $conn->prepare($query);
 $stmt->bindParam(1, $evento, PDO::PARAM_STR);
-$stmt->bindParam(2, $tipo, PDO::PARAM_STR);
-$stmt->bindParam(3, $data, PDO::PARAM_STR);
-$stmt->bindParam(4, $hora, PDO::PARAM_STR);
-$stmt->bindParam(5, $local, PDO::PARAM_INT);
-$stmt->bindParam(6, $endereco, PDO::PARAM_INT);
+$stmt->bindParam(2, $data, PDO::PARAM_STR);
+$stmt->bindParam(3, $hora, PDO::PARAM_STR);
+$stmt->bindParam(4, $local, PDO::PARAM_STR);
+$stmt->bindParam(5, $endereco, PDO::PARAM_INT);
+$stmt->bindParam(6, $tipo, PDO::PARAM_INT);
 $stmt->execute();
 
 $id_evento = $conn->lastInsertId(); // last inserted ID

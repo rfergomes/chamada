@@ -17,7 +17,7 @@ $pagenum = filter_input(INPUT_GET, 'pagenum', FILTER_SANITIZE_NUMBER_INT);
 <html lang="pt-br">
 
 <head>
-	<title>Pike Admin - Free Bootstrap 4 Admin Template</title>
+	<title>Controle de Frequências</title>
 	<meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
 	<meta name="keywords" content="Bootstrap 4, admin, theme, template, pike admin">
 	<?php include("global-head.php"); ?>
