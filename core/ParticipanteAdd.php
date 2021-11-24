@@ -17,7 +17,7 @@ $id_usuario = filter_input(INPUT_POST, 'u', FILTER_SANITIZE_STRING);
 // check for inputs
 if($id_evento =="" || $id_usuario =="")
 	{
-	header("Location:../account.php?page=evento_detalhe&id=".$id_evento."&msg=erro");
+	header("Location:../account.php?page=participantes&id=".$id_evento."&msg=erro");
 	exit();
 	}
 
@@ -30,5 +30,5 @@ $stmt->execute();
 $id_evento_detalhe = $conn->lastInsertId(); // last inserted ID	
 
 // form OK:
-	header("Location:../account.php?page=evento_detalhe&id=".$id_evento."&msg=edit_ok");	
+	header("Location:../account.php?page=participantes&id=".$id_evento."&msg=edit_ok");	
 exit;

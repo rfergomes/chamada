@@ -22,12 +22,12 @@ if(DEMO_MODE!=0)
 // check for inputs
 if($evento=="")
 	{
-	header("Location:../account.php?page=pro-users&msg=error_evento");
+	header("Location:../account.php?page=eventos&msg=error_evento");
 	exit();
 	}
 	if($tipo=="")
 	{
-	header("Location:../account.php?page=pro-users&msg=error_tipo");
+	header("Location:../account.php?page=eventos&msg=error_tipo");
 	exit();
 	}
 	if($data=="" || $data < now())
@@ -37,12 +37,12 @@ if($evento=="")
 	}
 	if($hora=="")
 	{
-	header("Location:../account.php?page=pro-users&msg=error_hora");
+	header("Location:../account.php?page=eventos&msg=error_hora");
 	exit();
 	}
 	if($local=="")
 	{
-	header("Location:../account.php?page=pro-users&msg=error_local");
+	header("Location:../account.php?page=eventos&msg=error_local");
 	exit();
 	}
 

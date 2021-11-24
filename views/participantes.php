@@ -70,7 +70,7 @@ if ($msg == 'delete_ok')
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 		<div class="card mb-3">
 			<div class="card-header">
-				<span class="pull-right"></span>
+				<span class="pull-right"><a href="account.php?page=eventos" class="btn btn-sm btn-primary"> <i class="fa fa-reply"></i> Voltar</a></span>
 
 				<h3><i class="fa fa-user"></i> Detalhes do Evento</h3>
 			</div>

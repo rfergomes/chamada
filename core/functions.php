@@ -164,7 +164,7 @@ function DateFormat($date)
 		return "-";
 	else
 		{			
-	    date_default_timezone_set('Europe/London');
+	    date_default_timezone_set('America/Sao_Paulo');
 		$datetime = date_create($date);
 		return $datetime->format($date_format);		
 		}
@@ -178,7 +178,7 @@ function DateTimeFormat($date)
 		return "-";
 	else
 		{		
-	    date_default_timezone_set('Europe/London');
+	    date_default_timezone_set('America/Sao_Paulo');
 		$datetime = date_create($date);
 		return $datetime->format($date_format.', H:i');		
 		}
@@ -187,7 +187,7 @@ function DateTimeFormat($date)
 
 function TimeFormat($date)
 	{
-    date_default_timezone_set('Europe/London');
+    date_default_timezone_set('America/Sao_Paulo');
 	$datetime = date_create($date);
 	return $datetime->format('H:i');		
 	}

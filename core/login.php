@@ -35,13 +35,14 @@ if($exist_user==1)
 	if($hasher->CheckPassword($login_password, $dbPassword))
 		{
 			//paswword OK
-			$query = "SELECT user_id, active FROM ".DB_PREFIX."users WHERE email = ? LIMIT 1";
+			$query = "SELECT * FROM ".DB_PREFIX."users WHERE email = ? LIMIT 1";
 			$stmt = $conn->prepare($query);
 			$stmt->bindParam(1, $login_email);
 			$stmt->execute();		
 			$row = $stmt->fetch(PDO::FETCH_ASSOC);
 			$user_id = $row['user_id'];
 			$user_active = $row['active'];
+			$permissao = $row['role_id'];
 			
 			if($user_active==0)
 				{
@@ -53,7 +54,9 @@ if($exist_user==1)
 			$authenticator = random_bytes(33);
 			$user_token = hash('sha256', $authenticator);
 			
-			$_SESSION['user_token'] = $user_token;	
+			$_SESSION['user_token'] = $user_token;
+			$_SESSION['id_usuario'] = $user_id;
+			$_SESSION['nivel_acesso'] = $permissao;
 		
 			// remember me
 			if(isset($_POST['remember']))
