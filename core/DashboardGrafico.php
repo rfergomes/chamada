@@ -1,15 +1,14 @@
 <?php 
 require_once "../config.php";
-require_once ABSPATH."/core/checklogin.php";
-require_once ABSPATH."/core/functions.php";
-require_once ABSPATH."/core/resize-class.php";
+//require_once ABSPATH."/core/checklogin.php";
+//require_once ABSPATH."/core/functions.php";
+//require_once ABSPATH."/core/resize-class.php";
 
 if(DEMO_MODE!=0)
 	{
 	header("Location:../account.php?page=dashboard&msg=demo_mode");
 	exit();
 	}
-
 	$sql = "SELECT  MONTHNAME(e.Data) AS MES, "
     . "COUNT(CASE WHEN ed.status = 'PRESENTE' THEN 1 END) AS PRESENTES, "
     . "COUNT(CASE WHEN ed.status = 'AUSENTE' THEN 1 END) AS AUSENTES "

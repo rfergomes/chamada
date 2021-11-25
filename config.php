@@ -36,6 +36,7 @@ $opt = [
 ];
 try {	
 	$conn = new PDO($dsn, DB_USER, DB_PASS, $opt);
+	$conn->exec("SET lc_time_names = 'pt_BR'");
 }
 catch (PDOException $e) {
     print "Error! " . $e->getMessage() . "<br/>";

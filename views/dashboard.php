@@ -32,29 +32,55 @@ if ($msg == 'demo_mode')
 
 <?php
 $total_Usuarios = $conn->query("SELECT count(1) FROM " . DB_PREFIX . "users WHERE active = 1")->fetchColumn();
+$total_Usuarios_Diretor = $conn->query("SELECT count(1) FROM " . DB_PREFIX . "users WHERE active = 1 AND funcao ='DIRETOR'")->fetchColumn();
+$total_Usuarios_Outros = $conn->query("SELECT count(1) FROM " . DB_PREFIX . "users WHERE active = 1 AND funcao != 'DIRETOR'")->fetchColumn();
 $total_Eventos = $conn->query("SELECT count(1) FROM " . DB_PREFIX . "evento")->fetchColumn();
 $total_Eventos_Ativos = $conn->query("SELECT count(1) FROM " . DB_PREFIX . "evento WHERE situacao ='Ativo'")->fetchColumn();
 ?>
 
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-		<div class="card-box noradius noborder bg-info">
-			<i class="fa fa-users float-right text-white"></i>
+		<div class="card-box noradius noborder bg-info text-white">
+			<i class="fa fa-users float-right"></i>
 			<h6 class="text-white text-uppercase m-b-20">Usuários</h6>
-			<h1 class="m-b-20 text-white counter"><?= $total_Usuarios ?></h1>
-			<span class="text-white">25 Diretores</span>
+			<div class="row">
+				<div class="col-3 text-center">
+					<h1 class="text-white counter"><?= $total_Usuarios ?></h1>
+					<small>TOTAL</small>
+				</div>
+				<div class="col-4 text-center">
+					<span class="btn btn-xs btn-info"><?= $total_Usuarios_Diretor ?></span>
+					<small>DIRETORES</small>
+				</div>
+				<div class="col-4 text-center">
+					<span class="btn btn-xs btn-info"><?= $total_Usuarios_Outros ?></span>
+					<small>OUTROS</small>
+				</div>
+			</div>
 		</div>
 	</div>
-
 	<div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-		<div class="card-box noradius noborder bg-default">
-			<i class="fa fa-file-text-o float-right text-white"></i>
+		<div class="card-box noradius noborder bg-primary text-white">
+			<i class="fa fa-calendar float-right"></i>
 			<h6 class="text-white text-uppercase m-b-20">Eventos</h6>
-			<h1 class="m-b-20 text-white counter"><?= $total_Eventos ?></h1>
-			<span class="text-white"><?= isset($total_Eventos_Ativos) ? "<a href='account.php?page=chamada' class='text-white' >" . $total_Eventos_Ativos . " Agendados</a>" : "Nenhum Evento Ativo" ?></span>
+			<div class="row">
+				<div class="col-3 text-center">
+					<h1 class="text-white counter"><?= $total_Eventos ?></h1>
+					<small>TOTAL</small>
+				</div>
+				<div class="col-4 text-center">
+					<span class="btn btn-xs btn-primary"><?= $total_Eventos_Ativos ?></span>
+					<small>AGENDADOS</small>
+				</div>
+				<div class="col-4 text-center">
+					<span class="btn btn-xs btn-primary"><?= $total_Eventos - $total_Eventos_Ativos ?></span>
+					<small>REALIZADOS</small>
+				</div>
+			</div>
 		</div>
 	</div>
-
+</div>
+<div class="row">
 	<div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
 		<div class="card-box noradius noborder bg-warning">
 			<i class="fa fa-bar-chart float-right text-white"></i>
@@ -499,7 +525,7 @@ $total_Eventos_Ativos = $conn->query("SELECT count(1) FROM " . DB_PREFIX . "even
 				var ausencia = [];
 
 				for (var i = 0; i < data.length; i++) {
-					mes.push(data[i].MES);
+					mes.push(data[i].MES.toUpperCase());
 					presenca.push(data[i].PRESENTES);
 					ausencia.push(data[i].AUSENTES);
 				}
@@ -517,11 +543,11 @@ $total_Eventos_Ativos = $conn->query("SELECT count(1) FROM " . DB_PREFIX . "even
 				labels: mes,
 				datasets: [{
 					label: 'PRESENTES',
-					backgroundColor: '#3EB9DC',
+					backgroundColor: '#a0e0ca',
 					data: presenca
 				}, {
 					label: 'AUSENTES',
-					backgroundColor: '#EBEFF3',
+					backgroundColor: '#ff4040',
 					data: ausencia
 				}]
 

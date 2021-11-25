@@ -78,7 +78,7 @@ if ($msg == 'chamada_ok')
 									</thead>
 									<tbody>
 										<?php
-										$sql = "SELECT * FROM " . DB_PREFIX . "evento_detalhes WHERE id_evento = " . $id_evento;
+										$sql = "SELECT e.id_evento AS id_evento,e.id_usuario AS id_usuario,u.name AS name,u.role_id AS role_id,ur.role AS cargo,e.status AS presenca FROM ((chamada.users u JOIN chamada.users_roles ur ON (u.role_id = ur.role_id)) JOIN chamada.evento_detalhe e ON (e.id_usuario = u.user_id)) WHERE e.id_evento = '".$id_evento."'";
 										$stmt_events = $conn->prepare($sql);
 										$stmt_events->execute();
 										while ($row = $stmt_events->fetch(PDO::FETCH_ASSOC)) {
